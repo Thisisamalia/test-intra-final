@@ -1,0 +1,112 @@
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+
+.container {
+    width: 80%;
+    margin: auto;
+    background: whitesmoke;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Titre */
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Style du tableau */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background: lightcoral;
+    color: white;
+    font-weight: bold;
+}
+
+/* Boutons */
+button {
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    margin: 2px;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+/* Bouton Modifier */
+button.modify {
+    background-color: #ffc107;
+    color: black;
+}
+
+/* Bouton Supprimer */
+button.delete {
+    background-color: #dc3545;
+    color: white;
+}
+
+
+button.add {
+    background-color: lightcyan;
+    color: black;
+    font-weight: 400;
+}
+
+
+form {
+    margin-top: 20px;
+    padding: 15px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    text-align: left;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+}
+
+
+
+#addButton{
+    background-color:lightblue;
+}
+
+#updateButton{
+    background-color: orange;
+}

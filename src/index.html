@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Contacts</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Gestion des Contacts</h1>
+
+        <!-- Tableau des contacts -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Téléphone</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="contact-list">
+                <!-- Les contacts seront affichés dynamiquement ici -->
+            </tbody>
+        </table>
+
+        <h2>Gestion de contact</h2>
+        <form id="contact-form">
+            <input type="text" id="nom" placeholder="Nom" required>
+            <input type="text" id="prenom" placeholder="Prénom" required>
+            <input type="tel" id="telephone" placeholder="Téléphone" required>
+            <input type="email" id="email" placeholder="Email" required>
+            
+            <button type="submit" id="addButton">Ajouter</button>
+            <button type="button" id="updateButton" style="display: none;">Modifier</button>
+        </form>
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+</html>

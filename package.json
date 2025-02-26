@@ -1,0 +1,27 @@
+{
+  "name": "test-intra-final",
+  "version": "1.0.0",
+  "main": "jest.config.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test:unit": "jest",
+    "start": "node server.js",
+    "test-cucumber": "cucumber-js",
+    "test:e2e": "playwright test tests/e2e"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^11.2.0",
+    "@playwright/test": "^1.50.1",
+    "jest": "^29.7.0"
+  }
+}
