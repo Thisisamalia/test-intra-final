@@ -5,7 +5,7 @@ test.describe("Ajout d'un contact avec Chromium", () => {
     let page;
 
     test.beforeEach(async () => {
-        browser = await chromium.launch({ headless: false }); // Mode visible
+        browser = await chromium.launch({ headless: false }); // mettre true pour git
         page = await browser.newPage();
         await page.goto('http://localhost:3000'); // Ouvrir l'application
     });

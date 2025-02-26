@@ -6,7 +6,8 @@
     "test": "tests"
   },
   "scripts": {
-    "test:unit": "jest",
+    "test:unit": "jest --config=jest.config.js",
+    "test" :"jest",
     "start": "node server.js",
     "test-cucumber": "cucumber-js",
     "test:e2e": "playwright test tests/e2e"
