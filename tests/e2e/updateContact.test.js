@@ -15,24 +15,30 @@ test.describe("Modification d'un contact avec Chromium", () => {
     });
 
     test('Modifier un contact existant', async () => {
-        // Sélectionner le premier bouton "Modifier"
+        // Sélectionner et cliquer sur "Modifier"
         await page.waitForSelector('button.modify');
         await page.click('button.modify');
 
-        // Attendre que le formulaire soit affiché et que le bouton "Modifier" apparaisse
-        await page.waitForSelector('#updateButton', { state: 'visible' });
+        // Attendre que le bouton "Modifier" devienne actif
+        await page.waitForFunction(() => {
+            const button = document.querySelector('#updateButton');
+            return button && !button.disabled && getComputedStyle(button).display !== 'none';
+        }, { timeout: 5000 });
 
-        // Modifier les informations
+        // Modifier les champs du formulaire
         await page.fill('#nom', 'Jean');
         await page.fill('#prenom', 'Durand');
 
-        // Cliquer sur le bouton "Modifier"
+        // Cliquer sur "Modifier"
         await page.click('#updateButton');
 
-        // Attendre la mise à jour de la table
-        await page.waitForTimeout(2000);
+        // Attendre que les informations dans le tableau se mettent à jour
+        await page.waitForFunction(() => {
+            const table = document.querySelector('table').textContent;
+            return table.includes('Jean') && table.includes('Durand');
+        }, { timeout: 5000 });
 
-        // Vérifier que le contact est mis à jour
+        // Vérifier que les nouvelles valeurs sont bien dans le tableau
         const contactTable = await page.locator('table').textContent();
         expect(contactTable).toContain('Jean');
         expect(contactTable).toContain('Durand');

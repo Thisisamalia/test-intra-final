@@ -9,9 +9,8 @@
     "test:unit": "jest --config=jest.config.js",
     "test" :"jest",
     "start": "node server.js",
-    "test-cucumber": "cucumber-js",
-    "test:e2e": "playwright test tests/e2e",
-    "test:bdd": "cucumber-js tests/bdd/features --require tests/bdd/step_definitions"
+    "test-cucumber": "cucumber-js tests/bdd/features --require tests/bdd/step_definitions/*.js",
+    "test:e2e": "playwright test tests/e2e"
   },
   "keywords": [],
   "author": "",

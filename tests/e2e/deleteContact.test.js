@@ -16,16 +16,21 @@ test.describe("Suppression d'un contact avec Chromium", () => {
 
     test('Supprimer un contact', async () => {
         // Accepter la boîte de dialogue de confirmation
-        page.on('dialog', dialog => dialog.accept());
+        page.on('dialog', async dialog => {
+            console.log(`Confirmation de suppression : ${dialog.message()}`);
+            await dialog.accept();
+        });
 
-        // Sélectionner le premier bouton "Supprimer" trouvé dans la table
+        // Sélectionner et cliquer sur "Supprimer"
         await page.waitForSelector('button.delete');
         await page.click('button.delete');
 
-        // Attendre la suppression en vérifiant que la table a changé
-        await page.waitForTimeout(2000); // Permet à l'interface de se mettre à jour
+        // Attendre que la ligne disparaisse après suppression
+        await page.waitForFunction(() => !document.querySelector('tr[data-contact="Jean Dupont"]'), {
+            timeout: 5000
+        });
 
-        // Vérifier que le contact n'est plus dans la liste
+        // Vérifier que le contact a bien disparu
         const contactTable = await page.locator('table').textContent();
         expect(contactTable).not.toContain('Jean');
         expect(contactTable).not.toContain('Dupont');
