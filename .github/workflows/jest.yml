@@ -28,7 +28,7 @@ jobs:
         run: npm run test:unit
 
       - name: Sauvegarder le rapport Jest
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: jest-report
           path: jest-report.xml
