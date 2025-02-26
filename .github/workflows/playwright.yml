@@ -24,6 +24,11 @@ jobs:
       - name: Installer les dépendances
         run: npm install
 
+      - name: Lancer le serveur en arrière-plan
+        run: |
+          nohup npm start & # Démarrer le serveur en arrière-plan
+          sleep 5 # Attendre quelques secondes que le serveur démarre
+
       - name: Ajouter les permissions Playwright
         run: chmod +x node_modules/.bin/playwright
 
