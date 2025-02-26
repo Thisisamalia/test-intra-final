@@ -9,23 +9,32 @@ on:
       - main
 
 jobs:
-  e2e-tests:
+  test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout du code
         uses: actions/checkout@v3
 
-      - name: Setup Node.js
+      - name: Installer Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
-      - name: Install dependencies
+      - name: Installer les dépendances
         run: npm install
 
-      - name: Install Playwright Browsers
-        run: npx playwright install
+      - name: Ajouter les permissions Playwright
+        run: chmod +x node_modules/.bin/playwright
 
-      - name: Run Playwright Tests
-        run: npx playwright test
+      - name: Installer Playwright et les navigateurs
+        run: npx playwright install --with-deps
+
+      - name: Exécuter les tests Playwright (Headless)
+        run: CI=true npm run test:e2e
+
+      - name: Sauvegarder les résultats des tests
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: test-results/
