@@ -18,3 +18,7 @@ Application web pour gérer une liste de contact (ajouter, modifier, supprimer).
 - **Tests** : Jest,Cucumber,Playwright  
 - **CI/CD** : GitHub Actions  
 
+lighthouse report :
+
+
+![alt text](image.png)
