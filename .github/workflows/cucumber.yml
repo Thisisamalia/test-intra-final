@@ -24,6 +24,9 @@ jobs:
       - name: Installer les dépendances
         run: npm install
 
+      - name: Donner les permissions aux scripts Cucumber
+        run: chmod +x node_modules/.bin/cucumber-js
+
       - name: Exécuter les tests Cucumber
         run: npm run test:bdd
 

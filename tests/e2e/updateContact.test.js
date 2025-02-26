@@ -5,7 +5,7 @@ test.describe("Modification d'un contact avec Chromium", () => {
     let page;
 
     test.beforeEach(async () => {
-        browser = await chromium.launch({ headless: false });
+        browser = await chromium.launch({ headless: true });
         page = await browser.newPage();
         await page.goto('http://localhost:3000');
     });
