@@ -10,7 +10,8 @@
     "test" :"jest",
     "start": "node server.js",
     "test-cucumber": "cucumber-js",
-    "test:e2e": "playwright test tests/e2e"
+    "test:e2e": "playwright test tests/e2e",
+    "test:bdd": "cucumber-js tests/bdd/features --require tests/bdd/step_definitions"
   },
   "keywords": [],
   "author": "",
